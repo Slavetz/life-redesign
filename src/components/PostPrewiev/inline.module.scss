@@ -1,0 +1,17 @@
+@import '/src/styles/variables.module';
+@import '/src/styles/media.module';
+
+.inline {
+  .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+
+    height: 22*3px;
+  }
+}

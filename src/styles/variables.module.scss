@@ -1,0 +1,37 @@
+$col-min-width: 300px;
+$col-max-width: 355px;
+$desktop-col-max-width: 340px;
+
+$gap: 16px;
+$gap-xs: 8px;
+$gap-s: 16px;
+$gap-m: 20px;
+$gap-l: 24px;
+$gap-xl: 32px;
+$gap-xxl: 40px;
+
+
+$mw-hor-tablet: $col-min-width * 4 + $gap * 5 - 1;
+$mw-ver-tablet: $col-min-width * 3 + $gap * 4 - 1;
+$mw-mobile: $col-min-width * 2 + $gap * 3 - 1;
+
+$mw-desktop-grid: $desktop-col-max-width * 4 + $gap * 3;
+$mw-hor-tablet-grid: $col-max-width * 3 + $gap * 2;
+$mw-ver-tablet-grid: $col-max-width * 2 + $gap * 1;
+$mw-mobile-grid: 100%;
+
+$header-height: 60px;
+
+$super-ligth-gray: #ededed; // scrollbar
+$ligth-gray: #d3d3d3; // border
+$gray: #9a9a9a; //  date, icons
+
+// #d3d3d3 border gray
+// #9a9a9a
+
+:export {
+  horTablet: $mw-hor-tablet;
+  verTablet: $mw-ver-tablet;
+  mobile: $mw-mobile;
+  gap: $gap;
+}

@@ -1,0 +1,37 @@
+@import "/src/styles/variables.module";
+@import '/src/styles/media.module';
+
+.root {
+  margin-bottom: $gap;
+  padding: $gap-m 0;
+
+  border-top: 1px solid $ligth-gray;
+  border-bottom: 1px solid $ligth-gray;
+
+  @include media-mobile {
+    padding: $gap-m;
+  }
+
+  :global {
+    .swiper-slide {
+      max-width: 281px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        background-color: $ligth-gray;
+        top: 0;
+        bottom: 0;
+        right: -16px;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+}

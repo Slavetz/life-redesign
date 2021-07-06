@@ -1,0 +1,20 @@
+@import "src/styles/variables.module";
+
+.root {
+  :global {
+    .swiper-scrollbar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 50;
+      height: 4px;
+      width: 100%;
+      border-radius: 0;
+      background: $super-ligth-gray;
+    }
+    .swiper-scrollbar-drag {
+      border-radius: 0;
+      background: $ligth-gray;
+    }
+  }
+}

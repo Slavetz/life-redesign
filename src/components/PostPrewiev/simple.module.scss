@@ -1,0 +1,26 @@
+@import '/src/styles/variables.module';
+@import '/src/styles/media.module';
+
+.simple {
+  min-height: 352px;
+  position: relative;
+
+  .media {
+    height: 200px;
+  }
+
+  .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+
+    height: 22*4px;
+
+    margin-top: $gap;
+  }
+}

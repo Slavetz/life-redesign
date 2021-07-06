@@ -1,0 +1,23 @@
+@import '/src/styles/variables.module';
+@import '/src/styles/media.module';
+
+@import './fullwidthText.module';
+
+@import './fullwidthCard.module';
+@import './doubleCard.module';
+@import './smallCard.module';
+
+@import './simple.module';
+
+@import './inline.module';
+
+.date {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+
+  /* Gray-medium */
+  color: $gray;
+
+  margin-top: $gap;
+}

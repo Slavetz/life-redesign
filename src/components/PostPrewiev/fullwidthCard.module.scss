@@ -1,0 +1,63 @@
+@import '/src/styles/variables.module';
+@import '/src/styles/media.module';
+
+.fullwidthCard {
+  position: relative;
+  height: 400px;
+
+  .media {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    -webkit-filter: brightness(.6);
+    filter: brightness(.6);
+  }
+
+  .textContent {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding: $gap-xl;
+  }
+
+  .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 500;
+
+    color: white;
+  }
+
+  .date {
+    color: #ffffff;
+  }
+
+  @include media-hor-tablet {
+    .title {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+    .textContent {
+      padding: $gap-l;
+    }
+  }
+
+  @include media-ver-tablet {
+    height: 345px;
+  }
+
+  @include media-mobile {
+    max-height: 320px;
+  }
+
+}

@@ -1,0 +1,19 @@
+@import "src/styles/variables.module";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  margin-top: $gap-l;
+}
+.line {
+  background: #fa0a0a;
+  height: 4px;
+}
+.title {
+  font-size: 28px;
+  line-height: 28px;
+  min-height: 28px;
+  font-weight: 900;
+
+  margin-top: $gap-l;
+}

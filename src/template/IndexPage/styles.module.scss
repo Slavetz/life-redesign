@@ -1,0 +1,152 @@
+@import 'styles/variables.module';
+@import 'styles/media.module';
+
+.app {
+  width: 100%;
+}
+
+.app_content_wrapper {
+  margin: 0 auto;
+  padding: 0 $gap;
+  max-width: $mw-desktop-grid;
+
+  @include media-hor-tablet {
+    max-width: $mw-hor-tablet-grid;
+  }
+
+  @include media-ver-tablet {
+    max-width: $mw-ver-tablet-grid;
+  }
+
+  @include media-mobile {
+    max-width: $mw-mobile-grid;
+    padding: 0;
+  }
+}
+
+
+.main_grid {
+  display: grid;
+  grid-gap: $gap;
+
+  grid-template-columns: repeat(4,[col] 1fr);
+
+  @include media-hor-tablet {
+    grid-template-columns: repeat(3,[col] 1fr);
+  }
+
+  @include media-ver-tablet {
+    display: block;
+  }
+}
+
+
+.content {
+  display: grid;
+  grid-gap: $gap;
+
+  grid-column: span 3;
+  grid-template-columns: repeat(3,[col] 1fr);
+
+  @include media-hor-tablet {
+    grid-column: span 2;
+    grid-template-columns: repeat(2, [col] 1fr);
+  }
+
+  @include media-ver-tablet {
+    grid-column: span 2;
+    grid-template-columns: repeat(2, [col] 1fr);
+  }
+
+  @include media-mobile {
+    display: block;
+    > div {
+      margin: $gap;
+    }
+    .fullWidthMobile {
+      margin: $gap 0;
+    }
+  }
+}
+
+
+.fullwidth {
+  grid-column: 1 / -1;
+}
+
+
+.item_A1 {
+
+}
+
+.item_A2 {
+
+}
+
+
+.item_B1 {
+  grid-column: 1 / -1;
+}
+
+.item_C2 {
+
+}
+
+.content {
+  .item_C1, .item_C2 {
+    display: none;
+  }
+}
+.aside {
+
+}
+
+@media screen and (max-width: $mw-ver-tablet) {
+  .item_B1 {
+    grid-column: span 1;
+  }
+
+  .item_C2 {
+    grid-row: span 2;
+  }
+
+  .content {
+    .item_C1, .item_C2 {
+      display: block;
+    }
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+.fakeHeader {
+  position: sticky;
+  top: 0;
+  height: $header-height;
+  background: #fff;
+  border-bottom: 1px solid $ligth-gray;
+  z-index: 999;
+}
+.fakeFooter {
+  margin-top: 40px;
+  height: 300px;
+  background: #151515;
+}
+
+.fakeTopAd {
+  height: 250px;
+  background: indianred;
+}
+.fakeAsideAd {
+  background: burlywood;
+  height: 600px;
+  width: 300px;
+  margin: $gap auto;
+}
+.fakeAsideAdFixed {
+  background: indianred;
+  position: sticky;
+  top: $header-height + $gap-s;
+}

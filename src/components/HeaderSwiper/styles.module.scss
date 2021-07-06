@@ -1,0 +1,20 @@
+@import "/src/styles/variables.module";
+@import '/src/styles/media.module';
+
+.root {
+  padding: $gap-m 0;
+
+  @include media-mobile {
+    padding: $gap-m;
+  }
+
+  :global {
+    .swiper-slide {
+      width: auto;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+}

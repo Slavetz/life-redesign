@@ -1,0 +1,17 @@
+@mixin media-hor-tablet {
+  @media (max-width: $mw-hor-tablet) {
+    @content;
+  }
+}
+
+@mixin media-ver-tablet {
+  @media (max-width: $mw-ver-tablet) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: $mw-mobile) {
+    @content;
+  }
+}

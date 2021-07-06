@@ -32,3 +32,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# ide's.
+.idea/
+.vscode
+
+# vim
+*.sw*
+tags
