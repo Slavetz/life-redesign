@@ -17,7 +17,9 @@
     "react-intersection-observer": "^8.32.0",
     "react-tabs": "^3.2.2",
     "sass": "^1.35.1",
-    "swiper": "^6.7.5"
+    "swiper": "^6.7.5",
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1"
   },
   "devDependencies": {
     "eslint": "7.30.0",
