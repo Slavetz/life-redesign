@@ -1,0 +1,14 @@
+.root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+  min-width: 100% !important;
+
+  background: url("/src/static/img/logo-white.png") no-repeat center, url("/src/static/img/life-pattern.jpg") repeat  center;
+  background-size: 130px, auto;
+}
+
+.root div, .root iframe {
+  min-width: 100%  !important;
+}

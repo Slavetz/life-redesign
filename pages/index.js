@@ -1,4 +1,4 @@
-import IndexPageTemplate from '../src/template/IndexPage'
+import IndexPageTemplate from '../src/templates/IndexPage'
 import getPostsData from "../src/data/posts";
 
 export default function IndexPage(props) {

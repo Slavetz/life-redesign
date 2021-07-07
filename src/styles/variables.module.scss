@@ -30,6 +30,7 @@ $gray: #9a9a9a; //  date, icons
 // #9a9a9a
 
 :export {
+  desktop: $mw-desktop-grid;
   horTablet: $mw-hor-tablet;
   verTablet: $mw-ver-tablet;
   mobile: $mw-mobile;

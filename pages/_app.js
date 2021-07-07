@@ -1,12 +1,18 @@
 import '../src/styles/globals.css'
 import '../src/styles/globals.module.scss'
-import {GlobalProvider} from "../src/context/globalContext";
-import React from "react";
+import { GlobalContextProvider } from "../src/context/GlobalContext";
+import HtmlLayout from "../src/layouts/html";
+import React, {useEffect} from "react";
 
 function MyApp({Component, pageProps}) {
-    return (<GlobalProvider>
-        <Component {...pageProps} />
-    </GlobalProvider>)
+    const Layout = HtmlLayout;
+    return (
+        <GlobalContextProvider>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </GlobalContextProvider>
+    );
 }
 
 export default MyApp
