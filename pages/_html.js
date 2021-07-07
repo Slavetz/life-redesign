@@ -3,7 +3,7 @@ import adManager from '!raw-loader!../src/static/js/adManager.min';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import cacheFontsHandler from '!raw-loader!../src/static/js/cacheFontsHandler.min';
 
-function HTMLHead() {
+export default function HTMLHead() {
     return (
         <>
             <link rel="preconnect" href="//googleoptimize.com" crossOrigin="true"/>
@@ -44,5 +44,3 @@ function HTMLHead() {
         </>
     )
 }
-
-export {HTMLHead}

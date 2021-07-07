@@ -51,7 +51,7 @@ const AdSLot = (props) => {
       if (display === 'block') initAdSlot();
       setRootMargin('0px');
     }
-  }, [inView]);
+  }, [inView,rootMargin,display]);
 
   useEffect(() => {
     const { adManager } = window;
@@ -63,14 +63,14 @@ const AdSLot = (props) => {
     }
 
     return () => {};
-  }, [adSlot]);
+  }, [adSlot, adSlot]);
 
   useEffect(() => {
     if (shouldRefresh) {
       if (inView && counter) adSlot.refreshAd();
       setTimeout(() => setCounter(counter + 1), refreshInterval);
     }
-  }, [shouldRefresh, counter]);
+  }, [shouldRefresh, inView, refreshInterval]);
 
   return <div id={adSlot?.id} ref={ref} className={cx(styles.root, className, selector)} style={{ display }} />;
 };
