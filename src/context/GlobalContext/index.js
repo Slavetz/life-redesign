@@ -99,7 +99,7 @@ function useUserStore() {
 function useScreenState() {
     const context = React.useContext(ContextState);
     if (context === undefined) {
-        throw new Error('useUserState must be used within a GlobalContextProvider');
+        throw new Error('useScreenState must be used within a GlobalContextProvider');
     }
     const { Screen } = context;
     return {

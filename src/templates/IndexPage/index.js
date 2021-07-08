@@ -2,7 +2,7 @@ import React from 'react';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
-import a from 'layouts/html/styles.module.scss';
+import l from 'layouts/html/styles.module.scss';
 import PostPrewiev from 'components/PostPrewiev';
 import NewsC2 from 'blocks/IndexPage/NewsC2';
 import Rassledovaniya from 'blocks/IndexPage/Rassledovaniya';
@@ -10,12 +10,10 @@ import EdChoise from 'blocks/IndexPage/EdChoise';
 import Wow from 'blocks/IndexPage/Wow';
 import Dich from 'blocks/IndexPage/Dich';
 
-import RightTopAd from 'components/AdSlots/RightTopAd'
-import RightBottomAd from 'components/AdSlots/RightBottomAd'
-
 import { useScreenState } from 'context/GlobalContext';
 import NewsB2 from 'blocks/IndexPage/NewsB2';
 import HeaderSwiper from 'blocks/IndexPage/HeaderSwiper';
+import RightAsideAds from "blocks/RightAsideAds";
 
 export default function Index(props) {
   const { data } = props;
@@ -25,11 +23,11 @@ export default function Index(props) {
 
   return (
     <>
-        <div className={a.app_content_wrapper}>
+        <div className={l.app_content_wrapper}>
             <HeaderSwiper data={data.Categories} />
             <NewsB2 data={data.B2} />
         </div>
-        <div className={cn(s.main_grid, a.app_content_wrapper)}>
+        <div className={cn(s.main_grid, l.app_content_wrapper)}>
             <div className={s.content}>
                 <div className={cn(s.item_B1, s.fullWidthMobile)}>
                     <PostPrewiev data={data.B1} type="fullwidthCard" />
@@ -64,12 +62,7 @@ export default function Index(props) {
                     <div className={cn(s.item_C2)}>
                         <NewsC2 data={data.C2} />
                     </div>
-                    <div className={cn(s.fakeAsideAd)}>
-                        <RightTopAd />
-                    </div>
-                    <div className={cn(s.fakeAsideAd, s.fakeAsideAdFixed)}>
-                        <RightBottomAd />
-                    </div>
+                    <RightAsideAds />
                 </div>
             )}
         </div>

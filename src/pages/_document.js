@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import HTMLHead from "./_html";
+import {HTMLHead, HTMLNoscript} from "layouts/html/document";
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -14,8 +14,9 @@ class MyDocument extends Document {
                     <HTMLHead />
                 </Head>
                 <body>
-                <Main />
-                <NextScript />
+                    <HTMLNoscript />
+                    <Main />
+                    <NextScript />
                 </body>
             </Html>
         )

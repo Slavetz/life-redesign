@@ -1,7 +1,7 @@
-import '../src/styles/globals.css'
-import '../src/styles/globals.module.scss'
-import { GlobalContextProvider } from "../src/context/GlobalContext";
-import HtmlLayout from "../src/layouts/html";
+import '../styles/globals.css'
+import '../styles/globals.module.scss'
+import { GlobalContextProvider } from "../context/GlobalContext";
+import HtmlLayout from "../layouts/html";
 import React, {useEffect} from "react";
 
 function MyApp({Component, pageProps}) {
