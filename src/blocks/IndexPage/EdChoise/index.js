@@ -3,7 +3,7 @@ import cn from 'classnames';
 import grid from 'templates/IndexPage/styles.module.scss';
 import PostPrewiev from 'components/PostPrewiev';
 import NewsSwiper from 'blocks/IndexPage/NewsSwiper';
-import { useScreenState } from 'context/GlobalContext';
+import { useScreenState } from 'context/ScreenState';
 import RedLineTitle from 'components/RedLineTitle';
 
 export default function EdChoise({ data }) {

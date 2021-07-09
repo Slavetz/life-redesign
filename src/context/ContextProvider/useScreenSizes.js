@@ -1,6 +1,7 @@
 import {useMediaQuery} from "hooks/useMediaQuery";
 import scssVar from "styles/variables.module.scss";
 import {useEffect, useState} from "react";
+import {ScreenInitVals} from "../ScreenState";
 
 function useScreenSizes() {
 
@@ -8,7 +9,7 @@ function useScreenSizes() {
     const mwVerTablet = useMediaQuery(`(max-width: ${scssVar.verTablet})`);
     const mvMobile = useMediaQuery(`(max-width: ${scssVar.mobile})`);
 
-    const [screenState, setScreenState] = useState({});
+    const [ScreenState, setScreenState] = useState(ScreenInitVals.Screen);
 
     useEffect(() => {
         const data = {
@@ -38,21 +39,7 @@ function useScreenSizes() {
         setScreenState(data)
     }, [mwVerTablet, mvHorTablet, mvMobile]);
 
-    useEffect(() => {
-        console.log('useEffect screenState', screenState)
-    }, [screenState]);
-
-    return screenState
+    return ScreenState
 }
 
-const ScreenSizesInitVals = {
-    mvHorTablet: false,
-    mwVerTablet: false,
-    mvMobile: false,
-    isMobile: false,
-    isVerTablet: false,
-    isHorTablet: false,
-    isDesktop: true,
-};
-
-export { useScreenSizes, ScreenSizesInitVals }
+export { useScreenSizes }

@@ -4,7 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import s from './styles.module.scss';
 import PostPrewiev from 'components/PostPrewiev';
-import { useScreenState } from 'context/GlobalContext';
+import { useScreenState } from 'context/ScreenState';
 
 export default function NewsC2({ data = [] }) {
   const { mwVerTablet } = useScreenState();

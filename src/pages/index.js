@@ -12,7 +12,10 @@ export async function getServerSideProps() {
   const data = await getPostsData();
   return {
     props: {
-      data: data
+      data: data,
+      context: {
+        'Main': data,
+      }
     },
   };
 }

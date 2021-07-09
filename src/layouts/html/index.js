@@ -3,16 +3,16 @@ import React from "react";
 import FullWidthTopAd from "components/AdSlots/FullWidthTopAd";
 import FullScreenAd from "components/AdSlots/FullScreenAd";
 
-const HtmlLayout = ({ children }) => {
+const HtmlLayout = ({children}) => {
     return (
         <div className={s.app}>
-            <FullScreenAd />
+            <FullScreenAd/>
             <div className={s.fakeTopAd}>
-                <FullWidthTopAd />
+                <FullWidthTopAd/>
             </div>
-            <div className={s.fakeHeader} />
-            { children }
-            <div className={s.fakeFooter} />
+            <div className={s.fakeHeader}/>
+            {children}
+            <div className={s.fakeFooter}/>
         </div>
     );
 };

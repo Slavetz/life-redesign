@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import styles from './styles.module.scss';
 import { isServer } from 'constants/index';
 import getCorrectAdSize from 'utils/getCorrectAdSize';
-import {useUIStore} from "context/GlobalContext";
+import { useUIStore } from "context/UIStore";
 
 const defaultRootMargin = '350px';
 

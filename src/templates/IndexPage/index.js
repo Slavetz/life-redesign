@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -9,63 +9,89 @@ import Rassledovaniya from 'blocks/IndexPage/Rassledovaniya';
 import EdChoise from 'blocks/IndexPage/EdChoise';
 import Wow from 'blocks/IndexPage/Wow';
 import Dich from 'blocks/IndexPage/Dich';
-
-import { useScreenState } from 'context/GlobalContext';
+import {useScreenState} from 'context/ScreenState';
 import NewsB2 from 'blocks/IndexPage/NewsB2';
 import HeaderSwiper from 'blocks/IndexPage/HeaderSwiper';
 import RightAsideAds from "blocks/RightAsideAds";
+import {useMainStore} from "../../context/MainStore";
+import {ACTIONS, useDispatchUIStore, useUIStore} from "../../context/UIStore";
 
-export default function Index(props) {
-  const { data } = props;
-  const { mwVerTablet } = useScreenState();
+export default function Index() {
+    const ScreenState = useScreenState();
+    const {mwVerTablet} = ScreenState;
 
-  if (!data) return null;
+    const dispatch = useDispatchUIStore()
+    const UIStore = useUIStore();
+    const MainStore = useMainStore();
 
-  return (
-    <>
-        <div className={l.app_content_wrapper}>
-            <HeaderSwiper data={data.Categories} />
-            <NewsB2 data={data.B2} />
-        </div>
-        <div className={cn(s.main_grid, l.app_content_wrapper)}>
-            <div className={s.content}>
-                <div className={cn(s.item_B1, s.fullWidthMobile)}>
-                    <PostPrewiev data={data.B1} type="fullwidthCard" />
-                </div>
+    useEffect(() => {
+        console.log('> dispatch UIStore', new Date - window._startDate, UIStore)
+        dispatch({
+            action: ACTIONS.CHANGE_EXPERIMENTS, value: {
+                experiments: {
+                    geo: false,
+                }
+            }
+        });
+    }, [])
 
-                {mwVerTablet && (
-                    <>
-                        <div className={cn(s.item_C2, s.fullWidthMobile)}>
-                            <NewsC2 data={data.C2} />
-                        </div>
-                        <div className={cn(s.item_C1, s.fullWidthMobile)}>
-                            <PostPrewiev type="fullwidthCard" data={data.C1} />
-                        </div>
-                    </>
-                )}
+    useEffect(() => {
+        console.log('> useEffect UIStore', new Date - window._startDate, UIStore)
+    }, [UIStore])
 
-                {data.AA.map((post) => (
-                    <PostPrewiev key={`NewsAA-${post._id}`} type="simple" data={post} />
-                ))}
+    useEffect(() => {
+        console.log('> useEffect ScreenState', new Date - window._startDate, ScreenState)
+    }, [ScreenState])
 
-                <Rassledovaniya data={data.Rassledovaniya} />
-                <EdChoise data={data.EdChoise} />
-                <Wow data={data.Wow} />
-                <Dich data={data.Dich} />
+    useEffect(() => {
+        console.log('> useEffect ScreenState', new Date - window._startDate, MainStore)
+    }, [MainStore])
+    
+    return (
+        <>
+            <div className={l.app_content_wrapper}>
+                <HeaderSwiper data={MainStore.Categories}/>
+                <NewsB2 data={MainStore.B2}/>
             </div>
+            <div className={cn(s.main_grid, l.app_content_wrapper)}>
+                <div className={s.content}>
+                    <div className={cn(s.item_B1, s.fullWidthMobile)}>
+                        <PostPrewiev data={MainStore.B1} type="fullwidthCard"/>
+                    </div>
 
-            {!mwVerTablet && (
-                <div className={s.aside}>
-                    <div className={cn(s.item_C1)}>
-                        <PostPrewiev type="smallCard" data={data.C1} />
-                    </div>
-                    <div className={cn(s.item_C2)}>
-                        <NewsC2 data={data.C2} />
-                    </div>
-                    <RightAsideAds />
+                    {mwVerTablet && (
+                        <>
+                            <div className={cn(s.item_C2, s.fullWidthMobile)}>
+                                <NewsC2 data={MainStore.C2}/>
+                            </div>
+                            <div className={cn(s.item_C1, s.fullWidthMobile)}>
+                                <PostPrewiev type="fullwidthCard" data={MainStore.C1}/>
+                            </div>
+                        </>
+                    )}
+
+                    {MainStore.AA.map((post) => (
+                        <PostPrewiev key={`NewsAA-${post._id}`} type="simple" data={post}/>
+                    ))}
+
+                    <Rassledovaniya data={MainStore.Rassledovaniya}/>
+                    <EdChoise data={MainStore.EdChoise}/>
+                    <Wow data={MainStore.Wow}/>
+                    <Dich data={MainStore.Dich}/>
                 </div>
-            )}
-        </div>
-    </>
-  );
+
+                {!mwVerTablet && (
+                    <div className={s.aside}>
+                        <div className={cn(s.item_C1)}>
+                            <PostPrewiev type="smallCard" data={MainStore.C1}/>
+                        </div>
+                        <div className={cn(s.item_C2)}>
+                            <NewsC2 data={MainStore.C2}/>
+                        </div>
+                        <RightAsideAds/>
+                    </div>
+                )}
+            </div>
+        </>
+    );
 }

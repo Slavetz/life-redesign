@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import grid from 'templates/IndexPage/styles.module.scss';
 import PostPrewiev from 'components/PostPrewiev';
-import { useScreenState } from 'context/GlobalContext';
+import { useScreenState } from 'context/ScreenState';
 import NewsSwiper from 'blocks/IndexPage/NewsSwiper';
 import RedLineTitle from 'components/RedLineTitle';
 

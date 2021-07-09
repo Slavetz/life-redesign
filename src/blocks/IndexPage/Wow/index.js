@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { useScreenState } from 'context/GlobalContext';
+import { useScreenState } from 'context/ScreenState';
 
 import PostPrewiev from 'components/PostPrewiev';
 import NewsSwiper from 'blocks/IndexPage/NewsSwiper';
