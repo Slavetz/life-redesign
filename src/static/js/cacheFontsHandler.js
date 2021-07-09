@@ -36,12 +36,11 @@ function cacheFonts(currentFonts, key) {
     });
   } else {
     const promises = fonts.map(async (font) => {
-      try{
+      try {
         document.fonts.add(await font.load());
-        return font.loaded
-
+        return font.loaded;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     });
 
@@ -73,7 +72,6 @@ function isFontsCached(currentFonts, key) {
   let cacheStale = false;
 
   if (currentFonts && currentFonts.length > 0 && cachedFonts && cachedFonts.length > 0) {
-
     if (currentFonts.length !== cachedFonts.length) {
       cacheStale = true;
     } else {

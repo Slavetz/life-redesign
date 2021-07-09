@@ -1,5 +1,4 @@
-const getAliasOrIdxUrl = (prefix) => (obj) =>
-  `/${prefix}/${obj && (obj.alias || obj.index || obj.idx)}`;
+const getAliasOrIdxUrl = (prefix) => (obj) => `/${prefix}/${obj && (obj.alias || obj.index || obj.idx)}`;
 
 export const seoPaths = {
   videos: 'video',

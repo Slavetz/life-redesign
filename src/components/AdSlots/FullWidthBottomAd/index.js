@@ -5,12 +5,11 @@ import loadScript from 'utils/loadScript';
 
 import DisablingWrapper from 'components/DisablingWrapper';
 
-import Close from 'components/Svgs/Close';
-
-import styles from './styles.module.scss';
-import AdSLot from '../AdSLot';
+import Close from 'atoms/Svgs/Close';
 
 import { isHidden } from 'constants/index';
+import styles from './styles.module.scss';
+import AdSLot from '../AdSLot';
 
 const SCRIPT_ID = 'jquery';
 const SCRIPT_SRC = '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js';

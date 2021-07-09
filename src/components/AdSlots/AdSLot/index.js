@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 import { useInView } from 'react-intersection-observer';
 
-import styles from './styles.module.scss';
 import { isServer } from 'constants/index';
 import getCorrectAdSize from 'utils/getCorrectAdSize';
-import { useUIStore } from "context/UIStore";
+import { useUIStore } from 'context/UIStore';
+import styles from './styles.module.scss';
 
 const defaultRootMargin = '350px';
 

@@ -35,11 +35,11 @@ window.priceGranularity = {
     _init() {
       const { slot, slotSizes, targets, bid, bidSizes } = this.props;
 
-      if (bid && !document.getElementById('prebid-script')){
+      if (bid && !document.getElementById('prebid-script')) {
         const doc = document;
         const sc = doc.createElement('script');
         sc.async = true;
-        sc.id = 'prebid-script'
+        sc.id = 'prebid-script';
         sc.src = '/static/js/prebid.3.15.0.min.js';
         const s = doc.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(sc, s);
@@ -100,7 +100,11 @@ window.priceGranularity = {
 
     refreshAd() {
       const { googletag } = window;
-      const { ad, id, props: { bid } } = this;
+      const {
+        ad,
+        id,
+        props: { bid },
+      } = this;
       // console.log('>>> Refresh Ad', bid ? 'bid' : 'slot', id)
       try {
         googletag.cmd.push(() => {
@@ -163,11 +167,9 @@ window.priceGranularity = {
 
     removeSlotById(id) {
       const lenght = this.adSlots.length;
-      this.adSlots = this.adSlots.filter(slot => slot.id !== id)
+      this.adSlots = this.adSlots.filter((slot) => slot.id !== id);
 
-      if (this.adSlots.length === lenght)
-        console.error('id of removing ad is not founded');
-
+      if (this.adSlots.length === lenght) console.error('id of removing ad is not founded');
     }
 
     getSlotById(id) {

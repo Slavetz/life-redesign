@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import DisablingWrapper from 'components/DisablingWrapper';
+import { useScreenState } from 'context/ScreenState';
 import AdSLot from '../AdSLot';
 import styles from './styles.module.scss';
-import DisablingWrapper from 'components/DisablingWrapper';
-import {useScreenState} from "context/ContextProvider";
 
 const CommentsAd = ({ className, targets }) => {
   const { isMobile } = useScreenState();

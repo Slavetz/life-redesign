@@ -1,21 +1,16 @@
-import {initStore, initDispatch} from "./ContextProvider";
+import { initStore, initDispatch } from './ContextProvider';
 
-const ACTIONS = {
+const ACTIONS = {};
 
-};
-
-
-function actionHandler( store, { action, value } ) {
-    switch (action) {
-        default: {
-            throw new Error(`Unhandled action key: ${action}`);
-        }
+function actionHandler(store, { action, value }) {
+  switch (action) {
+    default: {
+      throw new Error(`Unhandled action key: ${action}`);
     }
+  }
 }
 
-const MainInitVals = {
-
-};
+const MainInitVals = {};
 
 const useMainStore = initStore('Main');
 

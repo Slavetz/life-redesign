@@ -7,10 +7,10 @@ import { useScreenState } from 'context/ScreenState';
 import RedLineTitle from 'components/RedLineTitle';
 
 function getDoubleCardNumber(ScreenState) {
-  const { isDesktop, isHorTablet } = ScreenState
+  const { isDesktop, isHorTablet } = ScreenState;
   if (isDesktop) return 3;
   if (isHorTablet) return 2;
-  return 0
+  return 0;
 }
 
 export default function Dich({ data }) {

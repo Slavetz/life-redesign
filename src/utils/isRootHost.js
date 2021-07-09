@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
   if (window) {
     let currentHref = window.location.href;
     const originHref = window.location.origin;
