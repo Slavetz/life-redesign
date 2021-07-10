@@ -7,7 +7,7 @@ import DisablingWrapper from 'components/DisablingWrapper';
 
 import Close from 'atoms/Svgs/Close';
 
-import { isHidden } from 'constants/index';
+import { isHidden } from 'constants/hiddenConfig';
 import styles from './styles.module.scss';
 import AdSLot from '../AdSLot';
 

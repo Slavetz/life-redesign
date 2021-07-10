@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import { useInView } from 'react-intersection-observer';
 
-import { isServer } from 'constants/index';
+import { isServer } from 'constants/main';
 import getCorrectAdSize from 'utils/getCorrectAdSize';
 import { useUIStore } from 'context/UIStore';
 import styles from './styles.module.scss';

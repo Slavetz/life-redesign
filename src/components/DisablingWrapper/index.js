@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { isHidden } from 'constants/index';
+import { isHidden, hiddenType } from 'constants/hiddenConfig';
 
 const DisablingWrapper = ({ children, placeholder = '', type }) => (isHidden[type] ? placeholder : children);
 
@@ -11,3 +11,4 @@ DisablingWrapper.propTypes = {
 };
 
 export default DisablingWrapper;
+export { hiddenType };
