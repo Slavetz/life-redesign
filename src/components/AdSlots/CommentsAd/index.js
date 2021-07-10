@@ -7,7 +7,7 @@ import { useScreenState } from 'context/ScreenState';
 import AdSLot from '../AdSLot';
 import styles from './styles.module.scss';
 
-const CommentsAd = ({ className, targets }) => {
+function CommentsAd({ className, targets }) {
   const { isMobile } = useScreenState();
 
   const smallSize = {
@@ -46,7 +46,7 @@ const CommentsAd = ({ className, targets }) => {
       />
     </DisablingWrapper>
   );
-};
+}
 
 CommentsAd.propTypes = {
   className: PropTypes.string,

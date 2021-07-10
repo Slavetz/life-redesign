@@ -22,12 +22,10 @@ $mw-mobile-grid: 100%;
 
 $header-height: 60px;
 
-$super-ligth-gray: #ededed; // scrollbar
+$super-ligth-gray: #f3f5f7; // scrollbar // #f3f5f7 // #ededed
 $ligth-gray: #d3d3d3; // border
 $gray: #9a9a9a; //  date, icons
-
-// #d3d3d3 border gray
-// #9a9a9a
+$color-red: #fa0a0a;
 
 :export {
   desktop: $mw-desktop-grid;

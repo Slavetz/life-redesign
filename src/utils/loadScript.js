@@ -6,7 +6,7 @@ export default function loadScript(src, { onload, onerror, ...options }) {
     if (typeof onerror === 'function') onerror();
   };
 
-  if (document.getElementById(options?.id)) {
+  if (document && document.getElementById(options?.id)) {
     _cb();
     return;
   }
