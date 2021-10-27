@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "next build && next start",
+    "start": "next build && next start -p $PORT",
     "next dev": "next dev",
     "next build": "next build",
     "next start": "next start",
@@ -11,7 +11,11 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1",
     "next": "11.0.1",
+    "prop-types": "^15.7.2",
+    "raw-loader": "^4.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-intersection-observer": "^8.32.0",
@@ -21,6 +25,10 @@
   },
   "devDependencies": {
     "eslint": "7.30.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
   }
 }

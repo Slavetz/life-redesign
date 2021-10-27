@@ -3,11 +3,6 @@ import cn from 'classnames';
 
 import MediaItem from 'components/MediaItem';
 import s from './style.module.scss';
-// import doubleCard from 'doubleCard.module';
-// import fullwidthCard from 'fullwidthCard.module';
-// import fullwidthText from 'fullwidthText.module';
-// import simple from 'simple.module';
-// import smallCard from 'smallCard.module';
 
 export default function PostPrewiev({ data, type, className, titleClassName }) {
   const { cover } = data;

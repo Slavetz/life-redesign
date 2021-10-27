@@ -25,6 +25,7 @@ export default async function getPostsData() {
     Wow: arr.splice(0, 6),
     Dich: arr.splice(0, 8),
   };
+
   // eslint-disable-next-line no-console
   console.log('data loaded!:', !!obj);
   return obj;

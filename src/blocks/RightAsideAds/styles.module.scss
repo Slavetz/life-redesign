@@ -1,0 +1,14 @@
+@import 'styles/variables.module';
+@import 'styles/media.module';
+
+.fakeAsideAd {
+  background: burlywood;
+  width: 300px;
+  margin: $gap auto;
+}
+
+.fakeAsideAdFixed {
+  background: indianred;
+  position: sticky;
+  top: $header-height + $gap-s;
+}

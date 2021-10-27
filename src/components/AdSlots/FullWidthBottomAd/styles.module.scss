@@ -1,0 +1,63 @@
+@import 'src/styles/variables.module';
+@import 'src/styles/media.module';
+
+.root {
+  position: fixed;
+  z-index: 15;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  display: none;
+  opacity: 0;
+  min-height: 50px;
+
+  @include media-mobile {
+    display: block;
+  }
+}
+
+.root:global(.loaded) {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.close {
+  text-align: center;
+  padding: 6px;
+  background-color: $color-red;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -30px;
+  right: 0;
+  outline: 0;
+  box-shadow: 0;
+  border-radius: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+
+  & svg {
+    flex-shrink: 0;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: -13px;
+    bottom: -8px;
+    z-index: -1;
+  }
+}
+
+.ad > div {
+  width: 100%;
+}

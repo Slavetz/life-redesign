@@ -6,7 +6,7 @@ import s from './styles.module.scss';
 const DEFAULT_IMAGE = '/preview-default.png';
 
 const LazyItem = ({ tag, src, poster, media, initialInView, skip = false, isPreview = false, ...rest }) => {
-  const supportLazyLoading = process.browser && 'loading' in HTMLImageElement.prototype;
+  const supportLazyLoading = process.browser && 'loading' in window.HTMLImageElement.prototype;
 
   const [ref, inView] = useInView({
     rootMargin: '350px',

@@ -1,34 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Для того чтобы запустить проект у себя на машине нужно добавить файл .env указав в нем порт и один из адресов апи:
+```code
+LIFE_API_URL=https://api.corr.life/public
+LIFE_API_URL=http://api.prod1.corr.life/public
+LIFE_API_URL=http://api.stage1.corr.life/public
+LIFE_API_URL=http://api.dev1.corr.life/public
 
-```bash
+PORT=3000
+
+# подробно об остальных параметрах можно узнать в раздере про деплой
+```
+Если это сделано, то тогда запускаем проект командой: 
+```code
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Технологии
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js](https://nextjs.org/docs) используется для реализации серверного рендеринга приложений React.js 
+- [React.js](https://ru.reactjs.org/docs/hooks-reference.html) с функциональным подходом с использованием хуков и эффектов
+- [React.Context](https://ru.reactjs.org/docs/context.html#api) как менеджер для работы с состоянием приложения 
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Структура проекта
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Корневая папка проекта `src/` внутри нее исходя из принципов [AtomicDesign](https://habr.com/ru/post/249223/) у нас есть следующая вложенность:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`atoms/` самые мелкие компоненты, такие как `<Icon />`, `<Text />`, `<Link />`, `<Logo />` и `тп`. Они имеют пропсы и не работают с внешним состоянием напрямую так как могут быть переиспользованы в др проектах
+
+`components/` компоненты состоящие из атомов, они могут работать с состоянием отвечающим за стиль отображения, но данные для отрисовки должны получать с предидущего уровня. 
+```code
+<MenuItem>
+    <Link>
+        <Icon />
+        <Text />
+    </Link>
+</MenuItem>
+```
+
+`blocks/` блоки состоящие из компонентов например:
+```code
+<Header>
+    <Logo />
+    <MenuItem />
+    <MenuItem />
+</Header>
+```
+
+`templates/` это шаблоны страниц на которых задаются основные принципи верстки, на шаблонах могут быть использованы как блоки так и отдельные компоненты, если шаблон слишком разрастается то его можно разделить на блоки. Блоуи шаблонов мы храним в по пути `/blocks/{temlateName}/`
+
+`layouts/` нужны для работы с разными типами разметки, например для HTML и AMP -страниц. Если для разных типов страниц требуются кастомизировать подключаемые скрипты стили и т.п. то для этого мы используем файл `document` внутри лэйаута который подключаем к шаблону документа (`/pages/_document`).  
+
+`pages/` эта папка описывает роутинг (см доку NextJS) и именно здесь, внутри страниц вызываются методы для префетча данных на сервере, которые могут быть переданы через пропсы в `templates` и `layouts`.
+
+`pages/_app` это верхний уровень нашего приложения, на этом уровне находится ContextProvider, который является провайдером для работы с глобальным состоянием
+
+`context/` эта папка служит для описания сторов и глобальных состаяний
+
+`data/` в этой папки описано взаимодействие с сервисами и API 
+
+Думаю что такие папки как `hooks/`, `utils/`, `styles/` и `constants/` отдельно можно не описывать. А вот папка `static/` служит для подключения в документ инлайновых скриптов которые минифицируются при сборке 
+
+
+## Code Style
+
+За основу берем наш [Cpde Style](https://www.notion.so/sortedstudio/Code-style-f8498f7cc5d34b6dba242a182c175cae) c поправкой на то как мы организовываем папку компонента.
+
+Папка атома / компонента / блока у нас должна выглядеть так:
+```code
+ComponentName:
+    index.js // коменты ниже
+    functions.js // функции которым не нужен контекст компонента, но которые занимают много места
+    style.module.scss // оборачиваем все в .root {}
+    image-a.png, image-b.png, ... // картинки могут быть только в атомах
+```
+... компоненты только функциональные 
+
+... написать про структуру компонентов
+
+... написать про импорт / экспорт
+
+...
+
+## Деплой
+
+... тут будет описание всех переменных и зачем они нужны
